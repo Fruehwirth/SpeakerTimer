@@ -18,7 +18,7 @@ body {
     width: 500px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;  /* Center items horizontally */
 }
 
 h1 {
@@ -28,9 +28,19 @@ h1 {
 .timer {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  /* Center items within the timer */
     margin: 10px 0;
-    width: 100%;
+    width: 100%;  /* Ensure timers take up the full width of the container */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;  /* Apply animation */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .bind-btn, .reset-icon, .delete-icon {
@@ -45,23 +55,17 @@ h1 {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 200px;
+    width: 200px;  /* Adjusted width */
 }
 
 .bind-btn {
     width: 30px;
     padding: 5px 10px;
-    border: 1px solid #007bff;
     border-radius: 4px;
-    background-color: white;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     text-align: center;
-}
-
-.bind-btn:hover {
-    background-color: #007bff;
-    color: white;
+    border: none;  /* Remove border as we are setting background color */
 }
 
 .bind-btn.selecting {
@@ -73,12 +77,17 @@ h1 {
     width: 120px;
     text-align: center;
     font-size: 18px;
+    transition: color 0.3s;
+}
+
+.time-display.running {
+    color: red;
 }
 
 .timer .reset-icon, .timer .delete-icon {
     cursor: pointer;
     margin-left: 10px;
-    user-select: none;
+    user-select: none;  /* Prevent text selection */
 }
 
 .timer .reset-icon {
@@ -133,6 +142,14 @@ h1 {
     background-color: #c82333;
 }
 
+#toggle-chart-btn {
+    background-color: #28a745;
+}
+
+#toggle-chart-btn:hover {
+    background-color: #218838;
+}
+
 .badge {
     position: absolute;
     bottom: 10px;
@@ -148,4 +165,21 @@ h1 {
 
 .badge img {
     margin-left: 5px;
+}
+
+.chart-container {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    margin-top: 20px;
+}
+
+.chart-container.show {
+    max-height: 400px;  /* Adjust based on the desired height */
+}
+
+#timer-chart {
+    width: 100% !important;
+    height: 400px !important;  /* Adjust based on the desired height */
 }

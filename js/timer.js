@@ -3,6 +3,7 @@ import { updateChart } from './chart.js';
 
 export let timers = [];
 let isInputFocused = false;
+let updateChartTimeout;
 
 export function addTimer() {
     const timerId = Date.now();
@@ -44,7 +45,7 @@ export function addTimer() {
     bindBtn.addEventListener('click', () => bindKey(timer, bindBtn));
     inputField.addEventListener('focus', () => handleInputFocus(true));
     inputField.addEventListener('blur', () => handleInputFocus(false));
-    inputField.addEventListener('input', updateChart);  // Update chart on input change
+    inputField.addEventListener('input', updateChart);
     resetIcon.addEventListener('click', () => resetTimer(timer));
     deleteIcon.addEventListener('click', () => deleteTimer(timerId));
 

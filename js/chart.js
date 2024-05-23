@@ -30,7 +30,7 @@ export function updateChart() {
 
     if (!chartVisible) return;
 
-    const filteredTimers = timers.filter(timer => timer.time > 0).reverse(); // Reverse the order of the timers
+    const filteredTimers = timers.filter(timer => timer.time > 0);
 
     const ctx = document.getElementById('timer-chart').getContext('2d');
     if (!chart) {
