@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaker Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Speaker Timer</h1>
+        <div id="timers"></div>
+        <div class="button-group">
+            <button id="add-timer-btn">Add Timer +</button>
+            <button id="reset-all-btn">Reset All ↺</button>
+            <button id="delete-all-btn">Delete All 🗑</button>
+            <button id="toggle-chart-btn">Show Chart ▼</button>
+        </div>
+        <div id="chart-container" class="chart-container">
+            <canvas id="timer-chart"></canvas>
+        </div>
+        <div class="badge">
+            Created with <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT Logo" height="20">
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
